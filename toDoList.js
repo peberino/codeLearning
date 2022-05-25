@@ -1,5 +1,6 @@
 let task = prompt("What would you like to do?");
 let todo = 0;
+let lines = "*********************";
 const todos = [];
 
 while (task !== "quit") {
@@ -16,18 +17,22 @@ while (task !== "quit") {
     let todo = prompt("Please enter the index of the task you want to remove.");
     if (todo >= 0 && todo <= todos.length) {
       todos.splice(todo, 1);
+      console.log(lines);
       for (tasks of todos) {
-        console.log(tasks);
+        console.log(`${todos.indexOf(tasks)} | ${tasks}`);
       }
+      console.log(lines);
       task = prompt("What would you like to do next?");
     } else {
       console.log(`${todo} is not a valid number. Please try again.`);
     }
     // Print the list.
   } else if (task === "list") {
+    console.log(lines);
     for (tasks of todos) {
       console.log(`${todos.indexOf(tasks)} | ${tasks}`);
     }
+    console.log(lines);
     task = prompt("What would you like to do next?");
   } else {
     console.log("Instruction not recognized. What would you like to do next?");
